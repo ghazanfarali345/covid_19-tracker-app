@@ -1,9 +1,12 @@
 import './App.css';
-
+import {Cards, Chart, Header, Footer} from './Components'
 function App() {
   return (
-    <div className="App">
-      <h1>Covid 19 Tracker App </h1>
+    <div>
+      <Header/> 
+      <Cards/>
+      <Chart/>
+      <Footer/>
     </div>
   );
 }
