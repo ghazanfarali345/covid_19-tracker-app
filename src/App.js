@@ -1,12 +1,14 @@
 import './App.css';
-import {Cards, Chart, Header, Footer} from './Components'
+import { Cards, Chart, Header } from './Components'
 function App() {
   return (
     <div>
-      <Header/> 
-      <Cards/>
-      <Chart/>
-      <Footer/>
+      <Header />
+      <div className="container">
+        <Cards />
+        <Chart />
+        {/* <Footer /> */}
+      </div>
     </div>
   );
 }
