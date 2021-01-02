@@ -1,7 +1,7 @@
-import {useEffect, useState} from 'react'
+import { useEffect, useState } from 'react'
 import './App.css';
 import { Cards, Chart, Header, CountryPicker } from './Components'
-import {fecthData} from './API'
+import { fecthData, countriesData } from './API'
 
 
 
@@ -9,29 +9,45 @@ import {fecthData} from './API'
 
 
 function App() {
+  
+  // STATE FOR ALL DATA
   const [state, setState] = useState({})
+  
+  //STATE FOR ALL COUNTRIES
+  const [countries, setCountries] = useState([])
 
-  useEffect(() => { 
-    const data = async()=>{
+  
+  useEffect(() => {
+    // SET STATES VALUE GETTING FROM API
+    const data = async () => {
       const fetchedData = await fecthData()
-      // console.log(fetchedData)
       setState(fetchedData)
     }
 
+    //FETCH ALL COUNTRIES
+    const fetchCountries = async () => {     
+      setCountries(await countriesData())
+    }
+
+    //INVOKING FUNCTIONS
+    fetchCountries();
     data()
+
   }, [])
-  // console.log(state)
- 
 
-
+  // GETTING DATA OF SPECIFIC COUNTRY
+  const countryChangeHandler = async (country) =>{
+    const fetchedData = await fecthData(country)
+    setState(fetchedData)
+  }
 
   return (
     <div>
       <div  >
-      <Header />
-        <CountryPicker/>
+        <Header />
+        <CountryPicker countries={countries} onchange={countryChangeHandler} />
         <Cards data={state} />
-      
+
         {/* <Footer /> */}
         <Chart />
       </div>

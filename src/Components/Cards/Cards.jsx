@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Cards({ data }) {
+  console.log(data,'data')
   const classes = useStyles();
   
   return (

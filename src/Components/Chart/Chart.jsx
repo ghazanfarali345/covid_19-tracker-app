@@ -17,7 +17,7 @@ const Chart = () => {
     fetchData()
   }, [])
 
-  console.log(dailyData)
+  // console.log(dailyData)
 
   const data = {
     labels: dailyData.map(({ date }) => date),
