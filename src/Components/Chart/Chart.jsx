@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Bar,Line } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 // import Grid from '@material-ui/core/Grid';
-import { makeStyles, StylesProvider } from '@material-ui/core/styles';
+// import { makeStyles } from '@material-ui/core/styles';
 // import { Grid } from '@material-ui/core';
 import { fetchDailyData } from '../../API'
 import Styles from './chart.module.css'
