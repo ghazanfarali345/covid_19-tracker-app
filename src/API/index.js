@@ -1,18 +1,19 @@
 const url = 'https://covid19.mathdro.id/api'
 
+
 export const fecthData = async (countries) => {
     let changeAbleUrl = url
-    if(countries){
+    if (countries) {
         changeAbleUrl = `${url}/countries/${countries}`
     }
-    // console.log(countries,'getCountry')
     try {
         return await (await fetch(changeAbleUrl)).json()
     }
-    catch(error) {
+    catch (error) {
         console.log(error)
     }
 }
+
 
 export const fetchDailyData = async () => {
     try {
@@ -32,7 +33,7 @@ export const fetchDailyData = async () => {
 export const countriesData = async () => {
     try {
         const { countries } = await (await fetch(`${url}/countries`)).json()
-        return  countries.map((data)=>data.name)
+        return countries.map((data) => data.name)
     } catch (error) {
         console.log(error)
     }

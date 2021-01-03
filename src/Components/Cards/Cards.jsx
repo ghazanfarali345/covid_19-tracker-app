@@ -7,41 +7,41 @@ import CountUp from 'react-countup'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 1000, 
-    margin: '10px auto'
-    
+    maxWidth: 900,
+    margin: '20px auto'
+
   },
   paper: {
     padding: theme.spacing(4),
+    backgroundColor: '#bn7070db',
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
 }));
 
-export default function Cards({ data:{data,country} }) {
-  // console.log(data,country,'data')
+export default function Cards({ data: { data, country } }) {
   const classes = useStyles();
-  
+
   return (
     <div className={classes.root}>
       {data ? <Grid container spacing={3}>
-        {Object.keys(data).slice(0,3).map((keys, i) => {          
+        {Object.keys(data).slice(0, 3).map((keys, i) => {
           return (
-          <Grid key={i}  item xs={12} sm={4}>
-            <Paper elevation={3} className={classes.paper}>
+            <Grid key={i} item xs={12} sm={4}>
+              <Paper elevation={3} className={classes.paper}>
                 <h3>{keys.toLocaleUpperCase()}</h3>
                 <h3><CountUp
-                statr={0}
-                end={data[keys]['value']}
-                duration={2.5}
-                separator=','
-                /></h3> 
+                  statr={0}
+                  end={data[keys]['value']}
+                  duration={2.5}
+                  separator=','
+                /></h3>
               </Paper>
-          </Grid>
+            </Grid>
           )
         })}
       </Grid> : null}
-      
+
     </div>
   );
 }

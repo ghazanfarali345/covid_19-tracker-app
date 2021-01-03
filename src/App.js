@@ -43,12 +43,13 @@ function App() {
 
   return (
     <div>
-      <div  >
+      <div className='container'>
         <Header />
-        <CountryPicker countries={countries} onchange={countryChangeHandler} />
+        </div>
         <Cards data={state} />
+      <div className='container'>
+        <CountryPicker countries={countries} onchange={countryChangeHandler} />
         <Chart dataProp={state}/>
-        {/* <Footer /> */}
       </div>
     </div>
   );
