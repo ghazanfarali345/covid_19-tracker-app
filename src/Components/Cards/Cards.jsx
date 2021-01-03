@@ -18,13 +18,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Cards({ data }) {
-  console.log(data,'data')
+export default function Cards({ data:{data,country} }) {
+  // console.log(data,country,'data')
   const classes = useStyles();
   
   return (
     <div className={classes.root}>
-      <Grid container spacing={3}>
+      {data ? <Grid container spacing={3}>
         {Object.keys(data).slice(0,3).map((keys, i) => {          
           return (
           <Grid key={i}  item xs={12} sm={4}>
@@ -40,7 +40,7 @@ export default function Cards({ data }) {
           </Grid>
           )
         })}
-      </Grid>
+      </Grid> : null}
       
     </div>
   );

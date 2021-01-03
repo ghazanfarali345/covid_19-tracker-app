@@ -5,7 +5,7 @@ export const fecthData = async (countries) => {
     if(countries){
         changeAbleUrl = `${url}/countries/${countries}`
     }
-    console.log(countries,'getCountry')
+    // console.log(countries,'getCountry')
     try {
         return await (await fetch(changeAbleUrl)).json()
     }

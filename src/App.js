@@ -21,7 +21,7 @@ function App() {
     // SET STATES VALUE GETTING FROM API
     const data = async () => {
       const fetchedData = await fecthData()
-      setState(fetchedData)
+      setState({data:fetchedData})
     }
 
     //FETCH ALL COUNTRIES
@@ -38,7 +38,7 @@ function App() {
   // GETTING DATA OF SPECIFIC COUNTRY
   const countryChangeHandler = async (country) =>{
     const fetchedData = await fecthData(country)
-    setState(fetchedData)
+    setState({data:fetchedData, country:country})
   }
 
   return (
@@ -47,9 +47,8 @@ function App() {
         <Header />
         <CountryPicker countries={countries} onchange={countryChangeHandler} />
         <Cards data={state} />
-
+        <Chart dataProp={state}/>
         {/* <Footer /> */}
-        <Chart />
       </div>
     </div>
   );
